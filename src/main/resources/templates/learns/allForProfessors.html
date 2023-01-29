@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Студенты на курсе</title>
+    </head>
+    
+    <body>
+        <div th:each="learn : ${learns}">
+            <a th:href="@{/learns/middleMark(number=${learn.getCourse().getNumber()},creditBook=${learn.getStudent().getCreditBook()})}"
+               th:text="${learn.getStudent().getName() + ' зачётка №' + learn.getStudent().getCreditBook()}">
+                course
+            </a>
+        </div>
+        <a href="/professors">Вернуться</a>
+    </body>
+</html>

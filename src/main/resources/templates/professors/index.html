@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Профессорский состав</title>
+    </head>
+    
+    <body>
+        <div th:each="professor : ${professors}">
+            <a th:href="@{/professors/{id}(id=${professor.getId()})}"
+               th:text="${professor.getName() + ', ' + professor.getPhone()}">user</a>
+        </div>
+        <hr/>
+        <a href="/professors/new">Зарегестрировать нового профессора</a>
+        <br/>
+        <a href="/professors/report">Отчёт</a>
+    </body>
+</html>

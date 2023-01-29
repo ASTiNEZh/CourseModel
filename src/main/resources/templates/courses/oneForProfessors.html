@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Преподаваемый курс</title>
+    </head>
+
+    <body>
+        <p th:text="${'Название: ' + course.getTitle()}">VALUE</p>
+        <p th:text="${'Номер: ' + course.getNumber()}">VALUE</p>
+        <p th:text="${'Стоимость: ' + course.getCoast()}">VALUE</p>
+        <p th:text="${'Преподаватель: ' + course.getProfessor().getName()}">VALUE</p>
+        <hr/>
+        <a th:href="@{/courses/{number}/edit(number=${course.getNumber()},id=${course.getProfessor().getId()})}">
+            Редактировать
+        </a>
+        <br/>
+        <a th:href="@{/learns/professors(number=${course.getNumber()})}">
+            Студенты изучающие этот курс
+        </a>
+        <br/>
+        <form th:method="DELETE"
+              th:action="@{/courses/{number}(number=${course.getNumber()},id=${course.getProfessor().getId()})}">
+            <input type="submit" value="Удалить"/>
+        </form>
+    </body>
+</html>

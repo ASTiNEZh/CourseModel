@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Удалить студента(ов)</title>
+    </head>
+    
+    <body>
+        <form th:each="student : ${students}" th:method="DELETE"
+              th:action="@{/students/{creditBook}(creditBook=${student.getCreditBook()})}">
+            <input type="submit"
+                   th:value="${'Удалить:' + student.getName() + ' зачётка №' + student.getCreditBook()}"/>
+        </form>
+    </body>
+</html>

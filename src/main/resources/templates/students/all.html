@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Студенты</title>
+    </head>
+    
+    <body>
+        <div  th:each="student : ${students}">
+            <a th:href="@{/students/{creditBook}(creditBook=${student.getCreditBook()})}"
+               th:text="${student.getName() + ' зачетка №' + student.getCreditBook()}">
+                user
+            </a>
+        </div>
+    </body>
+</html>

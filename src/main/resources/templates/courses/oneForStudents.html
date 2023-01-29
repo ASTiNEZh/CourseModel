@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Курс для изучения</title>
+    </head>
+
+    <body>
+        <p th:text="${'Название: ' + course.getTitle()}">VALUE</p>
+        <p th:text="${'Номер: ' + course.getNumber()}">VALUE</p>
+        <p th:text="${'Стоимость: ' + course.getCoast()}">VALUE</p>
+        <hr/>
+        <a th:href="@{/learns/new(creditBook=${creditBook},number=${course.getNumber()})}">
+            Изучать этот курс
+        </a>
+    </body>
+</html>

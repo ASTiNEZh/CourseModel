@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Профессор</title>
+    </head>
+
+    <body>
+        <p th:text="${professor.getName()}">VALUE</p>
+        <p th:text="${'Телефон: ' + professor.getPhone()}">VALUE</p>
+        <p th:text="${'Адрес: ' + professor.getAddress()}">VALUE</p>
+        <p th:text="${'Зарплата: ' + professor.getSalary()}">VALUE</p>
+        <hr/>
+        <a th:href="@{/professors/{id}/edit(id=${professor.getId()})}">Редактировать</a>
+        <br/>
+        <a th:href="@{/courses/new(id=${professor.getId()})}">Создать новый курс</a>
+        <br/>
+        <a th:href="@{/courses/professors(id=${professor.getId()})}">Преподаваемые курсы</a>
+        <br/>
+        <form th:method="DELETE" th:action="@{/professors/{id}(id=${professor.getId()})}">
+            <input type="submit" value="Delete"/>
+        </form>
+    </body>
+</html>

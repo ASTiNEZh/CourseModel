@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Пройденый курс</title>
+    </head>
+
+    <body>
+        <p th:text="${'Название: ' + learn.getCourse().getTitle()}">VALUE</p>
+        <p th:text="${'Номер: ' + learn.getCourse().getNumber()}">VALUE</p>
+        <p th:text="${'Средний бал: ' + middleMark}">VALUE</p>
+    </body>
+</html>

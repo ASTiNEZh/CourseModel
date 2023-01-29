@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Редактирование курса</title>
+    </head>
+    
+    <body>
+        <form th:method="PATCH" th:action="@{/courses/{number}(number=${course.getNumber()},id=${id})}"
+              th:object="${course}">
+            <p th:text="${'Номер: ' + course.getNumber()}">VALUE</p>
+            <label for="title">Введите название: </label>
+            <input type="text" th:field="*{title}" id="title"/>
+            <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Error</div>
+            <br/>
+            <label for="coast">Введите стоимость: </label>
+            <input type="number" step="0.01" th:field="*{coast}" id="coast"/>
+            <div style="color:red" th:if="${#fields.hasErrors('coast')}" th:errors="*{coast}">Error</div>
+            <br/>
+            <input type="submit" value="Edit!"/>
+        </form>
+    </body>
+</html>

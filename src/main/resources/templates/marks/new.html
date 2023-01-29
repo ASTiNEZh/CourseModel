@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Поставить оценку</title>
+    </head>
+
+    <body>
+        <p th:text="${'Средний бал: ' + middleMark}">
+        <form th:method="POST"
+              th:action="@{/marks(creditBook=${creditBook},number=${number},middleMark=${middleMark})}"
+              th:object="${mark}">
+            <label for="markValue">Введите оценку: </label>
+            <input type="number" th:field="*{markValue}" id="markValue"/>
+            <div style="color:red" th:if="${#fields.hasErrors('markValue')}" th:errors="*{markValue}">Error</div>
+            <br/>
+            <input type="submit" value="Поставить оценку"/>
+        </form>
+        <hr/>
+        <a th:href="@{/learns/finalMark(creditBook=${creditBook},number=${number})}">Выставить итоговую оценку</a>
+        <br/>
+        <a th:href="@{/professors}">Go home</a>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Студент</title>
+    </head>
+
+    <body>
+        <p th:text="${student.getName()}">VALUE</p>
+        <p th:text="${'Адрес: ' + student.getAddress()}">VALUE</p>
+        <p th:text="${'Телефон: ' + student.getPhone()}">VALUE</p>
+        <p th:text="${'е-Мail: ' + student.getEmail()}">VALUE</p>
+        <p th:text="${'Зачётная книжка №' + student.getCreditBook()}">VALUE</p>
+        <p th:text="${'Средний бал: ' + student.getMiddleMark()}">VALUE</p>
+        <hr/>
+        <a th:href="@{/courses/students(creditBook=${student.getCreditBook()})}">
+            Выбрать курс для изучения
+        </a>
+        <br/>
+        <a th:href="@{/learns/students(creditBook=${student.getCreditBook()})}">Изучаемые курсы</a>
+        <br/>
+        <a th:href="@{/learns/students/finished(creditBook=${student.getCreditBook()})}">Изученные курсы</a>
+        <hr/>
+        <form method="GET" th:action="@{/students/{creditBook}/edit(creditBook=${student.getCreditBook()})}">
+            <input type="submit" value="Редактировать"/>
+        </form>
+    </body>
+</html>

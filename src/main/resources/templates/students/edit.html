@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Редактировать данные студента</title>
+    </head>
+    
+    <body>
+        <form th:method="PATCH" th:action="@{/students/{creditBook}(creditBook=${student.getCreditBook()})}"
+              th:object="${student}">
+            <p th:text="${'Зачётная книжка №' + student.getCreditBook()}">VALUE</p>
+            <label for="name">Введите имя: </label>
+            <input type="text" th:field="*{name}" id="name"/>
+            <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
+            <br/>
+            <label for="address">Введите адрес: </label>
+            <input type="text" th:field="*{address}" id="address"/>
+            <div style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Error</div>
+            <br/>
+            <label for="phone">Введите телефон: </label>
+            <input type="tel" th:field="*{phone}" id="phone"/>
+            <div style="color:red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Error</div>
+            <br/>
+            <label for="email">Введите e-Мail: </label>
+            <input type="email" th:field="*{email}" id="email"/>
+            <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</div>
+            <br/>
+            <input type="submit" value="Редактировать"/>
+        </form>
+    </body>
+</html>
