@@ -11,8 +11,6 @@ import java.util.Objects;
 @Embeddable
 public class LearnKey implements Serializable {
 
-    //ПОЛЯ//
-
     //Изучающий студент
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "creditbook")
@@ -23,16 +21,8 @@ public class LearnKey implements Serializable {
     @JoinColumn(name = "number")
     private Course course;
 
-    //КОНСТРУКТОРЫ//
 
     public LearnKey() {}
-
-//        public LearnKey(Student student, Course course) {
-//            this.student = student;
-//            this.course = course;
-//        }
-
-    //GET'РЫ И SET'РЫ//
 
     public Student getStudent() {
         return student;
@@ -49,8 +39,6 @@ public class LearnKey implements Serializable {
     public void setCourse(Course course) {
         this.course = course;
     }
-
-    //equals() и hashCode()//
 
     @Override
     public boolean equals(Object o) {
