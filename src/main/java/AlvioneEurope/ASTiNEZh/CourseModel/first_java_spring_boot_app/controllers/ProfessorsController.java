@@ -16,8 +16,6 @@ import java.io.IOException;
 @RequestMapping("/professors")
 public class ProfessorsController {
 
-    //ПОЛЯ//
-
     //Сервис (логика приложения)
     private final ProfessorsService professorsService;
 
@@ -27,8 +25,6 @@ public class ProfessorsController {
     //Микросервис для отчётности
     private final Report report;
 
-    //КОНСТРУКТОРЫ//
-
     //Внедрение подходящих бинов в конструктор
     @Autowired//Явное указание
     public ProfessorsController(ProfessorValidator professorValidator, ProfessorsService professorsService,
@@ -37,10 +33,6 @@ public class ProfessorsController {
         this.professorsService = professorsService;
         this.report = report;
     }
-
-    //МЕТОДЫ//
-
-    //CREATE
 
     //Форма для создания новой сущности
     @GetMapping("/new")
@@ -64,8 +56,6 @@ public class ProfessorsController {
         return "redirect:/professors";
     }
 
-    //READ
-
     //Чтение всех существующих сущностей
     @GetMapping()
     public String getAll(Model model) {
@@ -75,6 +65,7 @@ public class ProfessorsController {
 
         return "professors/index";
     }
+    
     //Чтение конкрентного сущности
     @GetMapping("/{id}")
     public String getOne(@PathVariable("id") int id, Model model) {
@@ -96,8 +87,6 @@ public class ProfessorsController {
         return "redirect:/professors";
     }
 
-    //UPDATE
-
     //Чтение данных для редактирования конкретной сущности
     @GetMapping("/{id}/edit")
     public String getUpdate(Model model, @PathVariable("id") int id) {
@@ -107,6 +96,7 @@ public class ProfessorsController {
 
         return "professors/edit";
     }
+    
     //Обновление сущности
     @PatchMapping("/{id}")
     public String postUpdate(@ModelAttribute("professor") @Valid Professor professor, BindingResult bindingResult,
@@ -124,8 +114,6 @@ public class ProfessorsController {
 
         return "redirect:/professors";
     }
-
-    //DELETE
 
     //Удаление конкретной сущности
     @DeleteMapping("/{id}")
