@@ -12,8 +12,6 @@ import java.util.Objects;
 @Table(name = "Professor")
 public class Professor {
 
-    //ПОЛЯ//
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -34,9 +32,6 @@ public class Professor {
     private String address;
 
     //Телефон проффессора
-//    @Id
-//    @GeneratedValue(generator = "uuid")
-//    @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = "phone")
     @NotEmpty(message = "Phone should not be empty")
     @Pattern(regexp = "\\+\\d{1,2}\\(\\d{3}\\)\\d{3}-\\d{2}-\\d{2}",
@@ -52,15 +47,11 @@ public class Professor {
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private List<Course> courses;
 
-    //КОНСТРУКТОРЫ//
-
     public Professor() {}
 
     public Professor(int id) {
         this.id = id;
     }
-
-    //GET'РЫ И SET'РЫ//
 
     public String getName() {
         return name;
@@ -109,8 +100,6 @@ public class Professor {
     public void setId(int id) {
         this.id = id;
     }
-
-    //equals() и hashCode()//
 
     @Override
     public boolean equals(Object o) {
