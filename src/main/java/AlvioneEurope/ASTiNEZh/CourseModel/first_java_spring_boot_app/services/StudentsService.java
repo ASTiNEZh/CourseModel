@@ -11,20 +11,14 @@ import java.util.List;
 @Transactional(readOnly = true)//Транзакции в классе только для чтения
 public class StudentsService {
 
-    //ПОЛЯ//
-
     //Репозитории реализущие элементарные запросы в БД
     private final StudentsRepository studentsRepository;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрение подходящих бинов в конструктор
     @Autowired
     public StudentsService(StudentsRepository studentsRepository) {
         this.studentsRepository = studentsRepository;
     }
-
-    //МЕТОДЫ//
 
     //Вывести из БД список всех сущностей
     public List<Student> findAll() {
