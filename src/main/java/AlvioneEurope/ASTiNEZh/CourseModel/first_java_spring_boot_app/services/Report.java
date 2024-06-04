@@ -83,9 +83,6 @@ public class Report {
             i++;
         }
 
-//        //Меняем размер столбца
-//        sheet.autoSizeColumn(1);
-
         //Записываем всё в файл
         book.write(new FileOutputStream(file));
 
