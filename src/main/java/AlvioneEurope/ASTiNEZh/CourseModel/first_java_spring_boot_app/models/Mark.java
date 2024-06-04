@@ -7,9 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "Mark")
 public class Mark {
-
-    //ПОЛЯ//
-
+    
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,8 +22,6 @@ public class Mark {
     @JoinColumn(name = "creditbook", referencedColumnName = "creditbook")
     @JoinColumn(name = "number", referencedColumnName = "number")
     private Learn learn;
-
-    //GET'РЫ И SET'РЫ//
 
     public int getMarkValue() {
         return markValue;
@@ -50,8 +46,6 @@ public class Mark {
     public void setId(int id) {
         this.id = id;
     }
-
-    //equals() и hashCode()//
 
     @Override
     public boolean equals(Object o) {
