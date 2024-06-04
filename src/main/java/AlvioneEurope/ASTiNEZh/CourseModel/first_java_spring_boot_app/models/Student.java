@@ -13,8 +13,6 @@ import java.util.Objects;
 @Table(name = "Student")
 public class Student {
 
-    //ПОЛЯ//
-
     //Имя студента
     @Column(name = "name")
     @NotEmpty(message = "Имя не должно быть пустым")
@@ -60,8 +58,6 @@ public class Student {
     @ManyToMany(mappedBy = "students")
     private List<Course> courses;
 
-    //КОНСТРУКТОРЫ//
-
     public Student() {}
 
     public Student(int creditBook) {
@@ -75,8 +71,6 @@ public class Student {
         this.email = email;
         this.creditBook = creditBook;
     }
-
-    //GET'РЫ И SET'РЫ//
 
     public String getName() {
         return name;
@@ -141,8 +135,6 @@ public class Student {
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
-
-    //equals() и hashCode()//
 
     @Override
     public boolean equals(Object o) {
