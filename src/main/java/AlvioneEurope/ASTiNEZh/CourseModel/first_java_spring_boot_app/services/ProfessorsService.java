@@ -12,15 +12,11 @@ import java.util.List;
 @Transactional(readOnly = true)//Транзакции в классе только для чтения
 public class ProfessorsService {
 
-    //ПОЛЯ//
-
     //Репозитории реализущие элементарные запросы в БД
     private final ProfessorsRepository professorsRepository;
 
     //Подключение data assets objects(DAO) прохождения курса
     private final ProfessorDAO professorDAO;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрение подходящих бинов в конструктор
     @Autowired
@@ -28,8 +24,6 @@ public class ProfessorsService {
         this.professorsRepository = professorsRepository;
         this.professorDAO = professorDAO;
     }
-
-    //МЕТОДЫ//
 
     //Вывести из БД список всех сущностей
     public List<Professor> findAll() {
@@ -50,7 +44,6 @@ public class ProfessorsService {
     //Обновить данные сущности
     @Transactional//Данный метод использует обычную транзакцию
     public void update(Professor updProfessor) {
-//        updProfessor.setId(id);
         professorsRepository.save(updProfessor);
     }
 
