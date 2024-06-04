@@ -15,8 +15,6 @@ import java.util.List;
 @Transactional(readOnly = true)//Транзакции в классе только для чтения
 public class CoursesService {
 
-    //ПОЛЯ//
-
     //Репозитории реализущие элементарные запросы в БД
     private final CoursesRepository coursesRepository;
 
@@ -26,8 +24,6 @@ public class CoursesService {
     //Подключение data assets objects(DAO) прохождения курса
     private final CourseDAO courseDAO;
 
-    //КОНСТРУКТОРЫ//
-
     //Внедрение подходящих бинов в конструктор
     @Autowired
     public CoursesService(CoursesRepository coursesRepository, ProfessorsService professorsService,
@@ -36,8 +32,6 @@ public class CoursesService {
         this.professorsService = professorsService;
         this.courseDAO = courseDAO;
     }
-
-    //МЕТОДЫ//
 
     //Вывести из БД список всех сущностей для студентов
     //Курс должен не изучатся ни в данный момент, ни ранее
