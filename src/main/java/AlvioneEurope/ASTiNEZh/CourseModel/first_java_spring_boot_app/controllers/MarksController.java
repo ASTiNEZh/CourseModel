@@ -14,15 +14,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/marks")
 public class MarksController {
 
-    //ПОЛЯ//
-
     //Сервис (логика приложения)
     private final MarksService marksService;
 
     //Валидатор
     private final MarkValidator markValidator;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрения подходящих бинов в конструктор
     @Autowired//Явное указание
@@ -31,9 +27,6 @@ public class MarksController {
         this.markValidator = markValidator;
     }
 
-    //МЕТОДЫ//
-
-    //CREATE
     //Форма для создания новой сущности
     @GetMapping("/new")
     public String addNew(@ModelAttribute("mark") Mark mark, @RequestParam("creditBook") int creditBook,
@@ -45,6 +38,7 @@ public class MarksController {
 
         return "marks/new";
     }
+    
     //Сохранение сущности в БД
     @PostMapping()
     public String postNew(@ModelAttribute("mark") @Valid Mark mark, @RequestParam("creditBook") int creditBook,
