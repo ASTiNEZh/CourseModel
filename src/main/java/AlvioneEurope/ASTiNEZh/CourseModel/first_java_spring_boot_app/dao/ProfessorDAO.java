@@ -14,13 +14,9 @@ import java.util.Optional;
 @Component
 public class ProfessorDAO {
 
-    //ПОЛЯ//
-
     //Сессия транзакции Hibernate
     private final EntityManager entityManager;
     private final JdbcTemplate jdbcTemplate;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрение подходящих бинов в конструктор
     @Autowired
@@ -28,8 +24,6 @@ public class ProfessorDAO {
         this.entityManager = entityManager;
         this.jdbcTemplate = jdbcTemplate;
     }
-
-    //МЕТОДЫ//
 
     //Создание HQL запроса в БД для извлечения данных. Объект с данными помещён в "обёртку" Optional<> для удобства при
     // валидации
@@ -41,11 +35,6 @@ public class ProfessorDAO {
     }
 
     public long countStudents(int id) {
-//
-//        return jdbcTemplate.query("SELECT S FROM Student S" +
-//                        " JOIN Learn L ON L.creditbook = S.creditbook JOIN Course C ON C.number = L.number" +
-//                        " JOIN Professor P ON P.id = C.professor WHERE P.id = ?",
-//                new BeanPropertyRowMapper<>(Student.class),id).size();
 
         Session session = entityManager.unwrap(Session.class);
 
