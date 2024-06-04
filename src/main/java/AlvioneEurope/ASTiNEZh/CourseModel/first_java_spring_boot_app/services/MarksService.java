@@ -11,14 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class MarksService {
 
-    //ПОЛЯ//
-
     //Репозитории реализущие элементарные запросы в БД
     private final MarksRepository marksRepository;
 
     private final LearnsService learnsService;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрение подходящих бинов в конструктор
     @Autowired
@@ -26,8 +22,6 @@ public class MarksService {
         this.marksRepository = marksRepository;
         this.learnsService = learnsService;
     }
-
-    //МЕТОДЫ//
 
     //Сохранить сущность
     public void save(Mark mark, int creditBook, int number) {
