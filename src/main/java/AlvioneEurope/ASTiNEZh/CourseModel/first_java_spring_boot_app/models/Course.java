@@ -11,8 +11,6 @@ import java.util.Objects;
 @Table(name = "Course")
 public class Course {
 
-    //ПОЛЯ//
-
     //Название курса
     @Column(name = "title")
     @NotEmpty(message = "Title should not be empty")
@@ -37,8 +35,6 @@ public class Course {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "professor", referencedColumnName = "id")
     private Professor professor;
-//    @Column(name = "professor")
-//    private int professorId;
 
     //Студенты изучающие курс
     @ManyToMany(fetch = FetchType.LAZY)
@@ -48,8 +44,6 @@ public class Course {
             inverseJoinColumns = @JoinColumn(name = "creditbook")
     )
     private List<Student> students;
-
-    //КОНСТРУКТОРЫ//
 
     public Course() {}
 
@@ -62,8 +56,6 @@ public class Course {
         this.number = number;
         this.coast = coast;
     }
-
-    //GET'РЫ И SET'РЫ//
 
     public String getTitle() {
         return title;
@@ -112,8 +104,6 @@ public class Course {
     public void setProfessor(Professor professor) {
         this.professor = professor;
     }
-
-    //equals() и hashCode()//
 
     @Override
     public boolean equals(Object o) {
