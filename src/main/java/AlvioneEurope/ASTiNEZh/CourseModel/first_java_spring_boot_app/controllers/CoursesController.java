@@ -14,17 +14,13 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/courses")
 public class CoursesController {
-
-    //ПОЛЯ//
-
+    
     //Сервис (логика приложения)
     private final CoursesService coursesService;
 
     //Валидаторы
     private final NewCourseValidator newCourseValidator;
     private final EditCourseValidator editCourseValidator;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрения подходящих бинов в конструктор
     @Autowired//Явное указание
@@ -33,10 +29,6 @@ public class CoursesController {
         this.newCourseValidator = newCourseValidator;
         this.editCourseValidator = editCourseValidator;
     }
-
-    //МЕТОДЫ//
-
-    //CREATE
 
     //Форма для создания новой сущности
     @GetMapping("/new")
@@ -69,8 +61,6 @@ public class CoursesController {
 
         return "redirect:/courses/professors?id=" + id;
     }
-
-    //READ
 
     //Чтение всех существующих сущностей для студентов
     @GetMapping("/students")
@@ -114,8 +104,6 @@ public class CoursesController {
         return "courses/oneForProfessors";
     }
 
-    //UPDATE
-
     //Чтение данных для редактирования конкретной сущности
     @GetMapping("/{number}/edit")
     public String getUpdate(Model model, @PathVariable("number") int number, @RequestParam("id") int id) {
@@ -126,6 +114,7 @@ public class CoursesController {
 
         return "courses/edit";
     }
+    
     //Обновление сущности
     @PatchMapping("/{number}")
     public String postUpdate(@ModelAttribute("course") @Valid Course course, @RequestParam("id") int id, Model model,
@@ -145,8 +134,6 @@ public class CoursesController {
 
         return "redirect:/courses/professors?id=" + id;
     }
-
-    //DELETE
 
     //Удаление конкретной сущности
     @DeleteMapping("/{number}")
