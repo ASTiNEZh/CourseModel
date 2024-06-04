@@ -13,22 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/learns")
 public class LearnsController {
 
-    //ПОЛЯ//
-
     //Сервис (логика приложения)
     private final LearnsService learnsService;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрения подходящих бинов в конструктор
     @Autowired//Явное указание
     public LearnsController(LearnsService learnsService) {
         this.learnsService = learnsService;
     }
-
-    //МЕТОДЫ//
-
-    //CREATE
 
     //Сохранение сущности в БД
     @GetMapping("/new")
@@ -37,8 +29,6 @@ public class LearnsController {
         learnsService.save(creditBook,number);
         return "redirect:/professors";
     }
-
-    //READ
 
     //Просмотр изучаемых курсов
     @GetMapping("/students")
@@ -50,6 +40,7 @@ public class LearnsController {
 
         return "learns/allNoFinishedForStudents";
     }
+    
     //Просмотр изучаемых курсов
     @GetMapping("/students/{number}")
     public String getOneForStudents(@RequestParam("creditBook") int creditBook, @PathVariable("number") int number,
@@ -99,8 +90,6 @@ public class LearnsController {
 
         return "redirect:/learns/professors?number=" + number;
     }
-
-    //DELETE
 
     //Удаление конкретной сущности
     @GetMapping("/delete")
