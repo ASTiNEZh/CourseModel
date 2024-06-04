@@ -15,16 +15,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/students")
 public class StudentsController {
 
-    //ПОЛЯ//
-
     //Сервис (логика приложения)
     private final StudentsService studentsService;
 
     //Валидаторы
     private final NewStudentValidator newStudentValidator;
     private final EditStudentValidator editStudentValidator;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрения подходящих бинов в конструктор
     @Autowired//Явное указание
@@ -33,10 +29,6 @@ public class StudentsController {
         this.newStudentValidator = newStudentValidator;
         this.editStudentValidator = editStudentValidator;
     }
-
-    //МЕТОДЫ//
-
-    //CREATE
 
     //Форма для создания новой сущности
     @GetMapping("/new")
@@ -61,8 +53,6 @@ public class StudentsController {
         return "redirect:/students";
     }
 
-    //READ
-
     //Чтение всех существующих сущностей
     @GetMapping()
     public String getAll(Model model) {
@@ -71,6 +61,7 @@ public class StudentsController {
 
         return "students/all";
     }
+    
     //Чтение конкрентной сущности
     @GetMapping("/{creditBook}")
     public String getOne(@PathVariable("creditBook") int creditBook, Model model) {
@@ -79,8 +70,6 @@ public class StudentsController {
 
         return "students/one";
     }
-
-    //UPDATE
 
     //Чтение данных для редактирования конкретной сущности
     @GetMapping("/{creditBook}/edit")
@@ -91,6 +80,7 @@ public class StudentsController {
 
         return "students/edit";
     }
+    
     //Обновление сущности
     @PatchMapping("/{creditBook}")
     public String postUpdate(@ModelAttribute("student") @Valid Student student, BindingResult bindingResult,
@@ -107,8 +97,6 @@ public class StudentsController {
         studentsService.update(creditBook, student);
         return "redirect:/students";
     }
-
-    //DELETE
 
     //Чтение всех существующих сущностей для удаления
     @GetMapping("/delete")
