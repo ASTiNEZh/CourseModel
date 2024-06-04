@@ -12,15 +12,11 @@ import java.util.List;
 @Component
 public class LearnDAO {
 
-    //ПОЛЯ//
-
     //Сессия транзакции Hibernate
     private final EntityManager entityManager;
 
     //JDBC API в "обвёртке" JDBC Template
     private final JdbcTemplate jdbcTemplate;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрение подходящих бинов в конструктор
     @Autowired
@@ -28,8 +24,6 @@ public class LearnDAO {
         this.entityManager = entityManager;
         this.jdbcTemplate = jdbcTemplate;
     }
-
-    //МЕТОДЫ//
 
     //Все сущности для студентов
     public List<Learn> findAllForStudents(int creditBook) {
