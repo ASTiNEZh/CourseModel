@@ -13,20 +13,14 @@ import java.util.Optional;
 @Component
 public class StudentDAO {
 
-    //ПОЛЯ//
-
     //Сессия транзакции Hibernate
     private final EntityManager entityManager;
-
-    //КОНСТРУКТОРЫ//
 
     //Внедрение подходящих бинов в конструктор
     @Autowired
     public StudentDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-
-    //МЕТОДЫ//
 
     //Создание HQL запроса в БД для извлечения данных. Объект с данными помещён в "обёртку" Optional<> для удобства при
     // валидации
