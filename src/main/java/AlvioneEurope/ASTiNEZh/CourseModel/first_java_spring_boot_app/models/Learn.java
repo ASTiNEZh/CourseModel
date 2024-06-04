@@ -10,8 +10,6 @@ import java.util.Objects;
 @Table(name = "Learn")
 public class Learn {
 
-    //ПОЛЯ//
-
     //Составной первичный ключ
     @EmbeddedId
     private LearnKey learnKey;
@@ -39,8 +37,6 @@ public class Learn {
     @JoinColumn(name = "number", referencedColumnName = "number", insertable=false, updatable=false)
     private Course course;
 
-    //КОНСТРУКТОРЫ//
-
     public Learn() {}
 
     public Learn(LearnKey learnKey) {
@@ -53,8 +49,6 @@ public class Learn {
         learnKey.setStudent(student);
         this.learnKey = learnKey;
     }
-
-    //GET'РЫ И SET'РЫ//
 
     public List<Mark> getMarks() {
         return marks;
@@ -99,8 +93,6 @@ public class Learn {
     public LearnKey getLearnKey() {
         return learnKey;
     }
-
-    //equals() и hashCode()//
 
     @Override
     public boolean equals(Object o) {
